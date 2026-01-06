@@ -3,7 +3,143 @@ title: "Testing MDX with Next.js"
 date: "2024-01-05"
 description: "A comprehensive guide to the App Router."
 tags: ["nextjs", "react", "webdev"]
+tag: "Python"
 isPublished: true
 ---
-# Welcome to my MDX page!
-This is some **bold** and _italics_ text.
+# Publishing a Python package with UV
+
+  If you've build a [Python](https://www.python.org/) package before, you know it requires a variety of tools.
+- [venv](https://docs.python.org/3/library/venv.html) - for creating isolated environments
+- [setuptools](https://setuptools.pypa.io/en/latest/) - for packaging and distribution
+- [twine](https://twine.readthedocs.io/en/stable/) - for uploading packages to PyPI
+- [pip](https://pip.pypa.io/en/stable/) - for installing dependencies
+
+[UV](https://docs.astral.sh/uv/) is a tool that seeks to simplify this process
+by automating many of the steps involved in packaging and publishing Python packages.
+In the next few minutes I'll show you how to use UV to publish a Python package to [PyPI](https://pypi.org/).
+
+
+## Prerequisites
+Before we begin, you will need to install UV. You can do this a variety of ways,
+documented in the [UV installation guide](https://docs.astral.sh/uv/getting-started/installation/).
+The easiest way is with a simple shell script:
+```bash
+$ curl -sSL https://uv.astral.sh/install.sh | sh
+```
+
+## Step 1: Initialize your package
+To setup a new Python package with UV, navigate to the directory where you want to create your package
+and run the following command:
+```bash
+$ uv init --lib my-calc-package
+```
+This will create a new directory called `my-package` with the basic structure of a Python package.
+```tree
+my-package/
+├── src/
+│   └── my_package/
+│       ├── __init__.py
+│       └── py.typed
+├── pyproject.toml
+└── README.md
+```
+A quick overview of each of these files:
+- `src/my_package/__init__.py`: This is the main module of your package.
+- `src/my_package/py.typed`: This file indicates that your package supports type hinting.
+- `pyproject.toml`: This file contains metadata about your package, such as its name, version, and dependencies.
+- `README.md`: This file contains a description of your package.
+
+## Step 2: Creating your package
+Navigate to the `src/my_package` directory to start adding your Python code.
+for this example, we'll create a calculator package with basic arithmetic functions.
+
+Create a new file called `calculator.py` and add the following code:
+```python
+def add(a: float, b: float) -> float:
+    return a + b
+
+def subtract(a: float, b: float) -> float:
+    return a - b
+```
+Now we need to update the `__init__.py` file
+to make these functions available when the package is imported. Currently we would
+have to import the functions like
+```python
+>>> from my_package.calculator import add, subtract
+>>> add(2, 3)
+5
+```
+which is alright, but would not be very user friendly if
+our package was named something like `calc`.
+For more information on structuring Python packages, 
+check out the [official documentation](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
+
+Update the `src/my_package/__init__.py` file to include the following code:
+```python
+from .calculator import add, subtract
+```
+This allows users to import the functions directly from the package:
+```python
+>>> from my_package import add, subtract
+>>> add(2, 3)
+5
+```
+## Step 3: Configuring package metadata
+There are many options you can configure in your `pyproject.toml` file, and I recommend
+checking out the pypi documentation on [packaging and distributing projects](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#writing-pyproject-toml)
+to learn more. 
+{/*UV should handle the dependencies and build system automatically, as well as setting the README file as the long description.*/}
+
+**At a minimum you should update the following fields in** `pyproject.toml`
+- `name`: The name of your package.
+- `version`: The version of your package.
+- `description`: A short description of your package.
+- `authors`: The authors of your package.
+- `license`: The license for your package.
+- `license-files`: The license files for your package.
+
+<p className="mb-6 text-lg leading-relaxed text-muted-foreground font-semibold">Additional fields you may want to consider</p>
+- `urls`: A list of URLs for your package, such as the homepage, repository, and documentation.
+- `keywords`: A list of keywords that describe your package, used by PyPI to help users find your package.
+- `classifiers`: A list of classifiers that describe your package, such as the programming language, license, and intended audience used by PyPI to categorize your package.
+
+
+Here is what your `pyproject.toml` file might look like after updating the metadata:
+```toml showLineNumbers {4, 9, 12,13,15}
+[project]
+name = "my-package"
+version = "0.1.0"
+description = "A simple calculator package"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+license = "MIT"
+license-files = ["LICEN[CS]E.*"]
+
+urls = [
+    "Homepage" = "https://example.com/my-package",
+    "Repository" = "https://github.com/yourusername/my-package",
+    "Issue Tracker" = "https://github.com/yourusername/my-package/issues",
+    "Documentation" = "https://example.com/my-package/docs",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.21,<0.10.0"]
+build-backend = "uv_build"
+```
+## Step 4: Building and publishing your package
+Now that your package is ready, you can build and publish it to PyPI.
+To build your package, run the following command in the root directory of your package:
+```bash
+$ uv build
+```
+This will create a `dist` directory containing the built package files.
+To publish your package to PyPI, run the following command, and paste your PyPI credentials when prompted:
+```bash
+$ uv publish
+```
+This will upload your package to PyPI, making it available for others to install and use.

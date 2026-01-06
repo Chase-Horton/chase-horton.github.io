@@ -4,35 +4,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
     h1: (props) => (
-      <h1 className="text-4xl font-black pb-4 w-full" {...props} />
+      <h1 className="mb-12 text-5xl font-bold leading-tight tracking-tight text-balance lg:text-6xl" {...props} />
     ),
-    h2: (props) => <h2 className="text-3xl font-bold pb-4 w-full" {...props} />,
-    h3: (props) => (
-      <h3 className="text-2xl font-semibold pb-4 w-full" {...props} />
-    ),
-    h4: (props) => (
-      <h4 className="text-xl font-medium pb-4 w-full" {...props} />
-    ),
-    h5: (props) => (
-      <h5 className="text-lg font-normal pb-4 w-full" {...props} />
-    ),
-    h6: (props) => (
-      <h6 className="text-base font-light pb-4 w-full" {...props} />
-    ),
-    p: (props) => <p className="text-lg mb-4 w-full" {...props} />,
-    li: (props) => <li className="pb-1" {...props} />,
-    ul: (props) => <ul className="list-disc pl-6 pb-4 w-full" {...props} />,
-    ol: (props) => <ol className="list-decimal pl-6 pb-4 w-full" {...props} />,
-    hr: (props) => (
-      <hr className="my-4 border-t border-gray-300 w-full" {...props} />
-    ),
-    blockquote: (props) => (
-      <blockquote
-        style={{ paddingBottom: 0 }}
-        className="border-l-4 pl-4 my-4"
-        {...props}
-      />
-    ),
-    a: (props) => <a className="hover:underline font-semibold" {...props} />,
+    pre: (props) => <pre className="rounded-lg overflow-hidden mb-6" {...props} />,
+    code: (props) => <code className="rounded bg-muted px-1.5 py-0.5" {...props} />,
+    h2: (props) => <h2 className="mb-8 mt-14 text-4xl font-bold tracking-tight scroll-mt-24" {...props} />,
+    h3: (props) => <h3 className="mb-6 mt-6 text-2xl font-bold tracking-tight scroll-mt-24" {...props} />,
+    p: (props) => { return (
+      <p className="mb-6 text-lg leading-relaxed text-muted-foreground" {...props} />
+    ); },
+    strong: (props) => <strong className="font-semibold text-foreground" {...props} />,
+    em: (props) => <em className="italic text-foreground" {...props} />,
+    li: (props) => <li className="text-lg leading-relaxed text-muted-foreground" {...props} />,
+    ul: (props) => <ul className="mb-6 ml-6 space-y-3 list-disc marker:text-[#00D9FF]" {...props} />,
+    a: (props) => <a className="text-[#00D9FF] font-medium hover:underline" {...props} />,
   };
 }

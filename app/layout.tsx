@@ -20,15 +20,31 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" className="dark">
+      <body className={`font-sans antialiased`}>
+        <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
+          <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-6">
+            <div className="flex items-center gap-8">
+              <a href="#" className="text-2xl font-bold">Home</a>
+              <div className="hidden md:flex items-center gap-6 text-sm">
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Blog
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Projects
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Links
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <main className="pt-16">{children}</main>
       </body>
     </html>
-  );
+  )
 }

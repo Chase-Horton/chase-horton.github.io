@@ -1,8 +1,7 @@
 import path from "node:path";
 import fs from "node:fs";
 import type { Metadata } from "next";
-
-
+import "highlight.js/styles/github-dark.css";
 
 export default async function BlogPage({
     params,
@@ -12,8 +11,18 @@ export default async function BlogPage({
 
     const { slug } = await params;
     const { default: Post } = await import(`@/content/posts/${slug}.mdx`)
+        const {frontmatter} = await import(`@/content/posts/${slug}.mdx`);
 
-    return <Post />
+    return (
+    <div className="min-h-screen">
+      <div className="mx-auto max-w-3xl px-6 py-16">
+        <div className="mb-6">
+          <span className="text-[#00D9FF] text-sm font-medium uppercase tracking-wider">{frontmatter.tag}</span>
+        </div>
+        <Post />
+      </div>
+    </div>
+    );
 }
 
 // Generate static paths for all slugs based on MDX files in the posts directory
