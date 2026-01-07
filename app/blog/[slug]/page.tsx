@@ -15,7 +15,7 @@ export default async function BlogPage({
         const {frontmatter} = await import(`@/content/posts/${slug}.mdx`);
 
     return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative pt-16">
       <div className="mx-auto max-w-3xl px-6 py-16">
         <div className="mb-6">
           <span className="text-[#00D9FF] text-sm font-medium uppercase tracking-wider">{frontmatter.tag}</span>
