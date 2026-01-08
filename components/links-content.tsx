@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Header } from "./header";
 
 interface Link {
     title: string;
@@ -45,7 +46,7 @@ const sections: Section[] = [
     //]
     //},
     {
-        title: "Fonts",
+        title: "fonts",
         links: [
             { title: "Monocraft", url: "https://github.com/IdreesInc/Monocraft" },
             { title: "Berkeley Mono", url: "https://berkeleygraphics.com/typefaces/berkeley-mono/" },
@@ -54,7 +55,7 @@ const sections: Section[] = [
         ],
     },
     {
-        title: "Reference",
+        title: "reference",
         links: [
             {
                 title: "Refactoring Guru - Software Design Patterns",
@@ -99,7 +100,7 @@ const sections: Section[] = [
     //],
     //},
     {
-        title: "Articles",
+        title: "articles",
         links: [
             {
                 title: "Reflections on Trusting Trust",
@@ -124,7 +125,7 @@ const sections: Section[] = [
         ],
     },
     {
-        title: "Fun",
+        title: "fun",
         links: [
             {
                 title: "Radio Garden",
@@ -164,7 +165,7 @@ const sections: Section[] = [
         ],
     },
     {
-        title: "Tools",
+        title: "tools",
         links: [
             {
                 title: "Carbon",
@@ -245,6 +246,7 @@ export function LinksContent() {
 
     return (
         <div className="mx-auto max-w-2xl px-6 pb-16 pt-32">
+            {mounted && <Header title="links" description="A curated collection of useful information and tools." />}
             {sections.map((section, sectionIdx) => {
                 const sectionDelay = itemIndex;
                 itemIndex++; // for the header
@@ -252,7 +254,7 @@ export function LinksContent() {
                 return (
                     <section key={section.title} className="mb-12">
                         <h2
-                            className="mb-4 text-sm font-medium uppercase tracking-wider text-[#00D9FF] transition-all duration-500"
+                            className="text-s w-fit font-mono pb-2 text-blue-400 transition-all duration-500"
                             style={{
                                 opacity: mounted ? 1 : 0,
                                 transform: mounted ? "translateY(0)" : "translateY(10px)",
@@ -269,7 +271,7 @@ export function LinksContent() {
                                 return (
                                     <li
                                         key={link.url}
-                                        className="text-muted-foreground transition-all duration-500 relative hover:z-20"
+                                        className="font-mono text-muted-foreground transition-all duration-500 relative hover:z-20 text-sm"
                                         style={{
                                             opacity: mounted ? 1 : 0,
                                             transform: mounted ? "translateY(0)" : "translateY(10px)",

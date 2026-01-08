@@ -138,12 +138,10 @@
     0% {
       opacity: 0;
       transform: translateY(20px); /* Slides up from bottom */
-      filter: blur(10px);          /* Starts blurry */
     }
     100% {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
   }
 }

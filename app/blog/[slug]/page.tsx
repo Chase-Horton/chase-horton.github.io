@@ -11,8 +11,8 @@ export default async function BlogPage({
 ) {
 
     const { slug } = await params;
-    const { default: Post } = await import(`@/content/posts/${slug}.mdx`)
-        const {frontmatter} = await import(`@/content/posts/${slug}.mdx`);
+    const postModule = await import(`@/content/posts/${slug}.mdx`);
+    const { default: Post, frontmatter } = postModule;
 
     return (
     <div className="min-h-screen relative pt-16">
@@ -47,7 +47,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     console.log("Generating metadata for slug:", slug);
     try {
         const {frontmatter} = await import(`@/content/posts/${slug}.mdx`);
-        //console.log(postModule)
         return {
             title: frontmatter.title,
             description: frontmatter.description,
