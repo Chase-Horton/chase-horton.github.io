@@ -22,7 +22,7 @@ const projects: Project[] = [
 
 export default function ProjectsPage() {
   return (
-    <TitlePage title="projects" description="A collection of things I've built and experiments I've worked on.">
+    <TitlePage title="projects" description="a collection of things I've built and experiments I've worked on.">
         {/*<div className="grid grid-cols-1 md:grid-cols-1 gap-6">
           projects.map((project, index) => (
             <ProjectCard key={project.slug} project={project} animationDelay={index * 100} />

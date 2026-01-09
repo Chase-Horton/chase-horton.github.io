@@ -12,7 +12,7 @@ export default async function BlogPage() {
     const posts = await getPosts();
 
     return (
-    <TitlePage title="blog" description="Thoughts on programming, and technology.">
+    <TitlePage title="blog" description="thoughts on programming, and technology.">
       <div className="space-y-6 max-w-3xl">
         {posts.map((post, index) => (
           <Link

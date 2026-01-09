@@ -6,41 +6,41 @@ tag: "Go"
 isPublished: true
 ---
 # Bitwise Operations in Go
-#### Recieve mask of flag N
+### Recieve mask of flag N
 ```go
 mask := 1<<N
 ```
 <br/>
-#### Recieve a full mask of 0b11111 of N flags
+### Recieve a full mask of 0b11111 of N flags
 ```go
 fullMask := 1<<N - 1
 ```
 <br/>
-#### Check if flag is set
+### Check if flag is set
 ```go
 if flags&mask > 0 {
     // set
 }
 ```
 <br/>
-#### Toggle a flag is set
+### Toggle a flag is set
 ```go
 flags ^= mask
 ```
 <br/>
-#### Get Lowest Bit
+### Get Lowest Bit
 ```go
 lowestBit := flags & -flags
 ```
 <br/>
-#### Check only 1 bit is set in any position
+### Check only 1 bit is set in any position
 ```go
 if flags&(flags-1) == 0 {
     // only one bit is set
 }
 ```
 <br/>
-#### Iterate over Flags
+### Iterate over Flags
 ```go
 remainingBits := flags
 for remainingBits != 0 {
@@ -52,7 +52,7 @@ for remainingBits != 0 {
 }
 ```
 <br/>
-#### Sorting masks by # of flags set
+### Sorting masks by # of flags set
 ```go
 count := bits.OnesCount16(flags)
 ```

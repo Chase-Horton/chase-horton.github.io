@@ -13,7 +13,7 @@ export default function LinksPage() {
     return (
         <TitlePage
             title="links"
-            description="A curated collection of useful information and tools."
+            description="a curated collection of useful information and tools."
         >
             {sections.map((section) => {
                 return (

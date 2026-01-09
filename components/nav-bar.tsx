@@ -1,30 +1,31 @@
 import { Rss } from "lucide-react";
+import Link from "next/link";
 
 export function NavBar() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/60 backdrop-blur-md">
             <div className="flex h-16 items-center justify-between px-8 md:px-12 w-full">
                 <div className="flex items-center gap-8">
-                    <a href="/" className="font-mono text-xl font-bold tracking-tighter hover:text-blue-400 transition-colors">
+                    <Link href="/" className="font-mono text-xl font-bold tracking-tighter hover:text-blue-400 transition-colors">
                         <span className="text-blue-400 mr-0.5">~</span>/
-                    </a>
+                    </Link>
                     <span className="text-white/20">|</span>
                     <div className="hidden md:flex items-center gap-6 text-sm font-medium font-mono">
-                        <a href="/blog" className="text-muted-foreground hover:text-blue-400 transition-colors">
+                        <Link href="/blog" className="text-muted-foreground hover:text-blue-400 transition-colors">
                             blog
-                        </a>
+                        </Link>
                         <span className="text-white/20">|</span>
-                        <a href="/projects" className="text-muted-foreground hover:text-blue-400 transition-colors">
+                        <Link href="/projects" className="text-muted-foreground hover:text-blue-400 transition-colors">
                             projects
-                        </a>
+                        </Link>
                         <span className="text-white/20">|</span>
-                        <a href="/toys" className="text-muted-foreground hover:text-blue-400 transition-colors">
+                        <Link href="/toys" className="text-muted-foreground hover:text-blue-400 transition-colors">
                             toys
-                        </a>
+                        </Link>
                         <span className="text-white/20">|</span>
-                        <a href="/links" className="text-muted-foreground hover:text-blue-400 transition-colors">
+                        <Link href="/links" className="text-muted-foreground hover:text-blue-400 transition-colors">
                             links
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
