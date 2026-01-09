@@ -92,6 +92,11 @@ const sections: Section[] = [
                 description: "A surprising paper by Ken Thompson on the nature of trust in software systems.",
             },
             {
+                title: "The Bitter Lesson",
+                url: "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+                description: "An interesting realization on the long term trends of fine tuning algorithms vs. brute force.",
+            },
+            {
                 title: "Sigbovik",
                 url: "https://sigbovik.org/",
                 description: "A site that publishes yearly journals of humurous, usually interesting programming research papers.",

@@ -54,11 +54,11 @@ export default function TikTokPage() {
             <div className="flex flex-col items-center gap-2">
 
                 {/* title */}
-                <p className="text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-500"
+                <p className="text-muted-foreground animate-in fade-in slide-in-from-bottom-4"
                     style={{ animationDelay: "500ms", animationDuration: "700ms", animationFillMode: "backwards" }}
                 >tick_tock</p>
 
-                <div className="flex flex-col pt-5 items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500"
+                <div className="flex flex-col pt-5 items-center gap-4 animate-in fade-in slide-in-from-bottom-4"
                     style={{ animationDelay: "700ms", animationDuration: "700ms", animationFillMode: "backwards" }}
                 >
 
@@ -67,18 +67,18 @@ export default function TikTokPage() {
 
                     {/* weeks lived */}
                     {birthdate && (
-                        <div className="flex flex-col items-center">
-                            <span className="text-sm text-muted-foreground mb-4">
-                                {weeksLived.toLocaleString()} week{weeksLived !== 1 ? "s" : ""} gone.
-                            </span>
-                        </div>
+                        <span className="text-sm text-muted-foreground mb-4">
+                            {weeksLived.toLocaleString()} week{weeksLived !== 1 ? "s" : ""} gone.
+                        </span>
                     )}
                 </div>
             </div>
 
 
 
-            {birthdate && (<div className="mt-9 flex flex-col items-center">
+            {birthdate && (<div className="mt-9 flex flex-col items-center animate-in fade-in slide-in-from-bottom-4"
+                style={{ animationDelay: "0ms", animationDuration: "700ms", animationFillMode: "backwards" }}
+            >
                 {/* view toggles */}
                 <div className="flex items-center gap-4 text-sm mb-8">
                     <button
