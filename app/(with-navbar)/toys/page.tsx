@@ -1,14 +1,18 @@
 import { TitlePage } from "@/components/title-page";
 import Link from "next/link";
-import { ArrowRight, Hourglass } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "toys",
+    description: "A collection of fun and experimental projects.",
+};
 
 export default function ToysPage() {
     const toys = [
         {
             title: "tik_tok",
-            description: "how will you live?",
-            href: "/toys/life", 
-            icon: Hourglass,
+            description: "those are your weeks and they’re all you’ve got.", //"how will you live?",
+            href: "/toys/tik_tok", 
         },
     ];
 

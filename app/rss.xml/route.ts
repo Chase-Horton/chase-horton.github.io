@@ -39,7 +39,6 @@ export async function GET() {
         });
     });
     console.log("RSS feed generated.");
-    console.log(feed);
     return new Response(feed.rss2(), {
         headers,
     });

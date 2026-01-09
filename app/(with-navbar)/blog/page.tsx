@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link"
-import { TitlePage } from "../../components/title-page"
+import { TitlePage } from "../../../components/title-page"
 import { getPosts } from "@/lib/server";
 
 export const metadata: Metadata = {
-    title: "Blog",
+    title: "blog",
     description: "Thoughts on programming, technology, and more.",
 };
 

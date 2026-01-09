@@ -4,7 +4,7 @@ import { sections } from "./links";
 import { SectionComponent } from "./section-component";
 
 export const metadata: Metadata = {
-    title: "Links",
+    title: "links",
     description: "A collection of cool links",
 };
 

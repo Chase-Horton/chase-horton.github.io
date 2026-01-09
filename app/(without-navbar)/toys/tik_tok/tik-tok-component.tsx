@@ -4,11 +4,8 @@ import { useEffect, useState, useCallback } from "react";
 import CalendarComponent from "./calendar-dropdown";
 import { GridSection } from "./grid-section";
 import { StatsSection } from "./stats-section";
-
-
-export default function LifePage() {
+export default function TikTokPage() {
     const [birthdate, setBirthdate] = useState<Date | undefined>(undefined);
-    const [mounted, setMounted] = useState(false);
     const [view, setView] = useState<"grid" | "remaining">("remaining")
     const [now, setNow] = useState(Date.now())
 
@@ -49,13 +46,10 @@ export default function LifePage() {
 
         return { years, months, weeks, days, hours, minutes, seconds, milliseconds, remaining, percentageLived }
     }
-    useEffect(() => {
-        setMounted(true)
-    }, [])
 
     const timeRemaining = calculateRemainingTime()
 
-    return (<div className="font-mono min-h-screen relative pt-16">
+    return (<div className="font-mono min-h-screen relative">
         <div className="mx-auto max-w-7xl px-6 pt-16">
             <div className="flex flex-col items-center gap-2">
 
@@ -118,8 +112,17 @@ export default function LifePage() {
                 )}
             </div>)}
             {birthdate && (
-                <footer key={`footer-${view}`} className={`mb-6 text-center text-sm text-muted-foreground animate-in fade-in slide-in-from-bottom-2 duration-500 ${view === 'remaining' ? 'mt-12' : 'mt-6'}`}
-                    style={{ animationDelay: "900ms", animationDuration: "700ms", animationFillMode: "backwards" }}>
+                <footer
+                    key={`footer-${view}`}
+                    className={`text-center text-sm text-muted-foreground animate-in fade-in slide-in-from-bottom-2 duration-500 ${
+                        view === "remaining" ? "absolute bottom-10 left-0 w-full" : "mt-6 mb-6"
+                    }`}
+                    style={{
+                        animationDelay: "900ms",
+                        animationDuration: "700ms",
+                        animationFillMode: "backwards",
+                    }}
+                >
                     Inspired by <a href="https://waitbutwhy.com/2014/05/life-weeks.html" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-blue-400 underline">Tim Urban's Post</a> — Your Life in Weeks.
                 </footer>
             )}

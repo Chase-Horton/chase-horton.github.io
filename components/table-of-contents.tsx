@@ -14,7 +14,7 @@ export function TableOfContents() {
   const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
-    // Find all headings with IDs in the article
+    // find all headings with ids in the article
     const elements = document.querySelectorAll("h1[id], h2[id], h3[id]");
     const items: TOCItem[] = Array.from(elements).map((element) => ({
       id: element.id,
@@ -23,7 +23,7 @@ export function TableOfContents() {
     }));
     setHeadings(items);
 
-    // Set up intersection observer for active heading tracking
+    // set up intersection observer for active heading tracking
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

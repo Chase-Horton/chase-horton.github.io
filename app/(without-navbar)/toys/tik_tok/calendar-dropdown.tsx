@@ -1,5 +1,3 @@
-"use client";
-
 import { Calendar } from "@/components/ui/calendar";
 import { useState, memo } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";

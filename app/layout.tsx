@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Chase Horton's Blog",
   description: "A blog about programming, technology, and stuff I find interesting.",
+  authors: [{ name: "Chase Horton" }],
 };
 
 export default function RootLayout({
@@ -29,10 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background h-screen flex flex-col selection:bg-blue-500/30`}
       >
-        <NavBar />
-        <main className="flex-1 flex flex-col">
           {children}
-        </main>
       </body>
       <GoogleAnalytics gaId="G-75BDYDT3EK" />
     </html>
