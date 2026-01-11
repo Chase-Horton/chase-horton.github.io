@@ -1,6 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import { ReactNode } from "react";
-import {Note} from "@/components/mdx/note";
+//import {Note} from "@/components/mdx/note";
 
 function slugify(text: ReactNode): string {
   if (typeof text !== "string") {
@@ -54,6 +54,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     blockquote: (props) => (
       <blockquote className="italic text-muted-foreground border-l-4 border-[#ad9407] pl-4 " {...props} />
     ),
-    Note,
+    //Note,
   };
 }
