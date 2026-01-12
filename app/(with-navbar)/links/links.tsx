@@ -154,6 +154,38 @@ const sections: Section[] = [
         ],
     },
     {
+        title: "archives",
+        links: [
+            {
+                title: "1968 - First Computer Mouse and Hypertext Demo",
+                description: "A demo by Douglas Engelbart demonstrating many \
+                revolutionary computer technologies. Also demonstrates many \
+                unique features no longer common in text editors",
+                url: "https://www.youtube.com/watch?v=yJDv-zdhzMY&t=125s"
+            },
+            {
+                title: "1962 - Telstar: First Live Satellite Broadcast",
+                description:"An interesting reminder of how much we take \
+                unlimited information access for granted.",
+                url:"https://youtu.be/-JTjB35zUxU?si=sg79ZUE5sJFD8jAb"
+            },
+            {
+                title: "1963 - Ivan Sutherland Sketchpad Demo",
+                description: "A demo of the first GUI ever created",
+                url: "https://youtu.be/6orsmFndx_o?si=vyoyXgJZvf0hW6wN"
+            },
+            {
+                title:"1963 - Timesharing: A Solution to Computer Bottlenecks",
+                description:"An introduction to timesharing systems, \
+                which allowed multiple users to share a single computer. Still \
+                extremely relevant ideas in modern cloud computing, cpu \
+                scheduling, and resource allocation.",
+                url:"https://youtu.be/Q07PhW5sCEk?si=pDVKQeywD6iXxFHH"
+            }
+        ],
+
+    },
+    {
         title: "tools",
         links: [
             {
