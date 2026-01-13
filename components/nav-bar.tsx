@@ -1,15 +1,25 @@
+"use client";
 import { Rss } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 export function NavBar() {
+    const [menuOpen, setMenuOpen] = useState(false);
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/60 backdrop-blur-md">
             <div className="flex h-16 items-center justify-between px-8 md:px-12 w-full">
                 <div className="flex items-center gap-8">
-                    <Link href="/" className="font-mono text-xl font-bold tracking-tighter hover:text-blue-400 transition-colors">
+                    {/* logo acts as dropdown trigger on mobile */}
+                    <button
+                        className="font-mono text-xl font-bold tracking-tighter hover:text-blue-400 transition-colors md:p-0 p-2 focus:outline-none bg-transparent border-0"
+                        onClick={() => setMenuOpen((v) => !v)}
+                        aria-label="Open menu"
+                        type="button"
+                    >
                         <span className="text-blue-400 mr-0.5">~</span>/
-                    </Link>
+                    </button>
                     <span className="text-white/20">|</span>
+                    {/* desktop nav */}
                     <div className="hidden md:flex items-center gap-6 text-sm font-medium font-mono">
                         <Link href="/blog" className="text-muted-foreground hover:text-blue-400 transition-colors">
                             blog
@@ -60,6 +70,25 @@ export function NavBar() {
                     </a>
                 </div>
             </div>
+            {/* mobile nav dropdown, triggered by logo */}
+            {menuOpen && (
+                <div className="md:hidden absolute top-16 left-0 right-0 bg-background/95 border-b border-white/10 z-40 shadow-lg animate-fade-in-down">
+                    <div className="flex flex-col gap-2 py-4 px-8 text-base font-mono font-medium">
+                        <Link href="/blog" className="py-2 text-muted-foreground hover:text-blue-400 transition-colors" onClick={() => setMenuOpen(false)}>
+                            blog
+                        </Link>
+                        <Link href="/projects" className="py-2 text-muted-foreground hover:text-blue-400 transition-colors" onClick={() => setMenuOpen(false)}>
+                            projects
+                        </Link>
+                        <Link href="/toys" className="py-2 text-muted-foreground hover:text-blue-400 transition-colors" onClick={() => setMenuOpen(false)}>
+                            toys
+                        </Link>
+                        <Link href="/links" className="py-2 text-muted-foreground hover:text-blue-400 transition-colors" onClick={() => setMenuOpen(false)}>
+                            links
+                        </Link>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 }
