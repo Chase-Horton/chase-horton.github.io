@@ -1,10 +1,10 @@
 ---
 title: "Understanding Python Bytecode to Optimize Performance"
-date: "2026-01-11"
+date: "2026-01-12"
 description: "An introduction to how the Python Virtual Machine executes bytecode and tips we can learn from it."
 tag: "Python"
 isPublished: true
-hidden: true
+hidden: false
 ---
 # Understanding Python Bytecode
 
@@ -46,7 +46,7 @@ Interpreted languages seek to be "runtime-portable", meaning the same executable
 
 This is achieved by targeting an imaginary CPU called a *Virtual Machine* (VM). By compiling instructions for the VM's ISA instead of having to recompile the source for each platform, we simply have the users on each platform run the same compiled file on separate devices with their platform-specific VM installed.
 
-Popular programming languages that target VMs include [Java](https://en.wikipedia.org/wiki/Java_(programming_language)), [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)), [Lua](https://en.wikipedia.org/wiki/Lua_(programming_language)), and of course Python.
+Popular programming languages that target VMs include [Java](https://en.wikipedia.org/wiki/Java_(programming_language)), [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)), [Lua](https://en.wikipedia.org/wiki/Lua_(programming_language)), and of course [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
 
 **Pros:**
 - Faster build step, often nearly instant (*or none such as in [REPLs](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)*)
@@ -56,7 +56,7 @@ Popular programming languages that target VMs include [Java](https://en.wikipedi
 **Cons:**
 - VM adds overhead, slower execution speed
    - Cannot utilize hardware features as effectively as native code
-- Errors only caught at runtime
+- Catches fewer errors before runtime
 - VM code optimizations are limited compared to AOT compilers
 
 
@@ -65,7 +65,7 @@ Popular programming languages that target VMs include [Java](https://en.wikipedi
 
 As C is compiled into machine code and then run by the CPU, Python is compiled into bytecode and then run by the [Python Virtual Machine](https://docs.python.org/3/glossary.html#term-virtual-machine).
 
-Just as C# is compiled into [CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language) and then run by the [.NET runtime](https://docs.microsoft.com/en-us/dotnet/standard/clr), and Java is compiled to bytecode to be run on the [JVM](https://en.wikipedia.org/wiki/Java_virtual_machine). (*This is an oversimplification of C# and Java, but [JIT compilation](https://en.wikipedia.org/wiki/Just-in-time_compilation) is a topic for another day.*)
+Similarly C# is compiled into [CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language) and then run by the [.NET runtime](https://docs.microsoft.com/en-us/dotnet/standard/clr), and Java is compiled to bytecode to be run on the [JVM](https://en.wikipedia.org/wiki/Java_virtual_machine). (*This is an oversimplification of C# and Java, but [JIT compilation](https://en.wikipedia.org/wiki/Just-in-time_compilation) is a topic for another day.*)
 
 Python offers some nice tools for understanding and inspecting bytecode.
 
@@ -113,7 +113,7 @@ function. Python defaults to trying to display in ASCII, falling back to hexadec
 
 The first byte,
 is displayed as `0x97` which is the hexadecimal representation of the byte value `151` in decimal.
-To better understand what each byte means, we can display the bytes as integer values.
+To view them more easily, we can list out the individual byte values as integers:
 ```py
 >>>list(add.__code__.co_code)
 [151, 0, 124, 0, 124, 1, 122, 0, 0, 0, 125, 2, 124, 2, 83, 0]
@@ -424,5 +424,3 @@ Python has inherent runtime overhead compared to an AOT compiled language like [
 - [Python's Virtual Machine](https://medium.com/@jonathan_hui/python-under-the-hood-part-1-python-virtual-machine-6f3c8ff3f1f)
 - [James Bennett, A Bit about Bytes Pycon 2018](https://youtu.be/GNPKBICTF2w?si=9wkd_fMw0W1bbUxG)
 - [Anjana Vakil, Exploring Python Bytecode EuroPython 2016](https://youtu.be/8aGhZQkoFbQ)
-### Acknowledgements
-*Thanks to the Python community for their continuous efforts in improving the language.*
