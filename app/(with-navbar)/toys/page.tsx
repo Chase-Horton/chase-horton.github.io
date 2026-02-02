@@ -11,9 +11,14 @@ export default function ToysPage() {
     const toys = [
         {
             title: "tik_tok",
-            description: "those are your weeks and they’re all you’ve got.", //"how will you live?",
+            description: "visualization of remaining life", //"how will you live?",
             href: "/toys/tik_tok", 
         },
+        {
+          title: "special relativity",
+          description: "animated slides used for a special relativity presentation.",
+          href: "/manim",
+        }
     ];
 
     return (
