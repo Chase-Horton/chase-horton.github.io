@@ -15,6 +15,11 @@ export default function ToysPage() {
             href: "/toys/tik_tok", 
         },
         {
+          title: "relativity interactive",
+          description: "an interactive walkthrough from position-time graphs to the constancy of c.",
+          href: "/toys/relativity",
+        },
+        {
           title: "special relativity",
           description: "animated slides used for a special relativity presentation.",
           href: "/manim",
